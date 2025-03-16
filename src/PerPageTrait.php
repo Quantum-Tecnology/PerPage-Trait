@@ -2,9 +2,8 @@
 
 namespace QuantumTecnology\PerPageTrait;
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Collection;
 
 trait PerPageTrait
 {
@@ -15,9 +14,9 @@ trait PerPageTrait
     {
         $this->perPage = request()->get('per_page', config('perpage.max_per_page'));
 
-        if($this->perPage > config('perpage.max_per_page')) {
+        if ($this->perPage > config('perpage.max_per_page')) {
             $this->perPage = config('perpage.max_per_page');
-        } elseif($this->perPage < config('perpage.min_per_page')) {
+        } elseif ($this->perPage < config('perpage.min_per_page')) {
             $this->perPage = config('perpage.min_per_page');
         }
 
@@ -31,8 +30,8 @@ trait PerPageTrait
         return $this;
     }
 
-    public function result(Builder $query): LengthAwarePaginator | Collection
+    public function result(): LengthAwarePaginator|Collection
     {
-        return $this->paginationEnabled ? $query->paginate($this->getPerPage()) : $query->get();
+        return $this->paginationEnabled ? $this->defaultQuery()->paginate($this->getPerPage()) : $this->defaultQuery()->get();
     }
 }
