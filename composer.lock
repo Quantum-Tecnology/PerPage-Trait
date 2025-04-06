@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c5a0b2b1abb837f68a5c117ef14576bc",
+    "content-hash": "a1899b2ac99809d255c85a42fd157944",
     "packages": [
         {
             "name": "brick/math",
@@ -2873,23 +2873,22 @@
         },
         {
             "name": "quantumtecnology/enum-basics-extension",
-            "version": "dev-main",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Quantum-Tecnology/Enum-Basics-Extension.git",
-                "reference": "23a557dde89ccc37e3141bc8f8aad11c3b846671"
+                "reference": "7c18d82f73a4cc383c75595f53dac0e5f00fa7cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Quantum-Tecnology/Enum-Basics-Extension/zipball/23a557dde89ccc37e3141bc8f8aad11c3b846671",
-                "reference": "23a557dde89ccc37e3141bc8f8aad11c3b846671",
+                "url": "https://api.github.com/repos/Quantum-Tecnology/Enum-Basics-Extension/zipball/7c18d82f73a4cc383c75595f53dac0e5f00fa7cf",
+                "reference": "7c18d82f73a4cc383c75595f53dac0e5f00fa7cf",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "^v10|^v11|^v12",
                 "php": "^8.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2919,9 +2918,9 @@
             "support": {
                 "email": "gustavo-computacao@hotmail.com",
                 "issues": "https://github.com/Quantum-Tecnology/Enum-Basics-Extension/issues",
-                "source": "https://github.com/Quantum-Tecnology/Enum-Basics-Extension/tree/2.0.1"
+                "source": "https://github.com/Quantum-Tecnology/Enum-Basics-Extension/tree/2.0.2"
             },
-            "time": "2025-02-25T00:13:39+00:00"
+            "time": "2025-04-06T15:34:54+00:00"
         },
         {
             "name": "quantumtecnology/validate-trait",
@@ -7060,9 +7059,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "quantumtecnology/enum-basics-extension": 20
-    },
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
