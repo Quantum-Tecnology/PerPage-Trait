@@ -1,5 +1,15 @@
 # CHANGE LOG
 
+## V2.1.2 (06/04/2025)
+
+# PT-BR
+
+- Corrigido um problema de tipagem. @GustavoSantarosa
+
+# EN
+
+- Updated the composer with the latest updates used in the package. @GustavoSantarosa
+
 ## V2.1.1 (06/04/2025)
 
 # PT-BR

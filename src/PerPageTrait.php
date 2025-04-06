@@ -12,7 +12,7 @@ use QuantumTecnology\ValidateTrait\Data;
 trait PerPageTrait
 {
     protected int $perPage;
-    protected ?PaginationEnum $paginationType = null;
+    protected ?string $paginationType = null;
 
     public function getPerPage(): int
     {
@@ -30,7 +30,7 @@ trait PerPageTrait
         return $this->perPage;
     }
 
-    public function setPagination(PaginationEnum $pagination): self
+    public function setPagination(string $pagination): self
     {
         $this->paginationType = $pagination;
 
