@@ -2,17 +2,24 @@
 
 namespace QuantumTecnology\PerPageTrait;
 
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Builder;
+use QuantumTecnology\PerPageTrait\Enums\PaginationEnum;
+use QuantumTecnology\ValidateTrait\Data;
 
+/**
+ * @method Builder defaultQuery()
+ */
 trait PerPageTrait
 {
     protected int $perPage;
-    protected bool $paginationEnabled = true;
+    protected ?PaginationEnum $paginationType = null;
 
     public function getPerPage(): int
     {
-        $this->perPage = request()->get('per_page', config('perpage.max_per_page'));
+        $this->perPage = request()->get(
+            config('perpage.parameters.per_page'),
+            config('perpage.max_per_page')
+        );
 
         if ($this->perPage > config('perpage.max_per_page')) {
             $this->perPage = config('perpage.max_per_page');
@@ -23,15 +30,21 @@ trait PerPageTrait
         return $this->perPage;
     }
 
-    public function disablePagination(): self
+    public function setPagination(PaginationEnum $pagination): self
     {
-        $this->paginationEnabled = false;
+        $this->paginationType = $pagination;
 
         return $this;
     }
 
-    public function result(): LengthAwarePaginator|Collection
+    public function result(): Data
     {
-        return $this->paginationEnabled ? $this->defaultQuery()->paginate($this->getPerPage()) : $this->defaultQuery()->get();
+        return data([
+            'data' => match ($this->paginationType ?? config('perpage.default')) {
+                PaginationEnum::PAGINATION_LENGTH => $this->defaultQuery()->paginate($this->getPerPage()),
+                PaginationEnum::PAGINATION_SIMPLE => $this->defaultQuery()->simplePaginate($this->getPerPage()),
+                default                           => $this->defaultQuery()->get(),
+            },
+        ]);
     }
 }
