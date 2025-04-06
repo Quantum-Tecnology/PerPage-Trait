@@ -23,6 +23,10 @@ trait PerPageTrait
         return $this->perPage;
     }
 
+    /**
+     * @deprecated 2.1.0 This method is deprecated and will be removed in future versions.
+     * Use `setPagination()` instead.
+     */
     public function disablePagination(): self
     {
         $this->paginationEnabled = false;
