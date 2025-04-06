@@ -5,7 +5,10 @@
   "description": "ValidateTrait for Laravel",
   "require": {
     "php": "^8.0",
-    "illuminate/support": "^v10|^v11|^v12"
+    "illuminate/support": "^v10|^v11|^v12",
+    "quantumtecnology/enum-basics-extension": "dev-main",
+    "illuminate/contracts": "^10.0 || ^11.0 || ^12.0",
+    "quantumtecnology/validate-trait": "^2.1"
   },
   "autoload": {
     "psr-4": {
@@ -22,12 +25,15 @@
   "support": {
     "email": "gustavo-computacao@hotmail.com"
   },
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "extra": {
     "laravel": {
       "providers": [
         "QuantumTecnology\\PerPageTrait\\Provider\\PerPageTraitProvider"
       ]
     }
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.75"
   }
 }
