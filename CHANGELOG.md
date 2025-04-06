@@ -8,7 +8,7 @@
 
 # EN
 
-- Updated the composer with the latest updates used in the package. @GustavoSantarosa
+- Fixed a typing issue. @GustavoSantarosa
 
 ## V2.1.1 (06/04/2025)
 
