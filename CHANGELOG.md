@@ -1,5 +1,15 @@
 # CHANGE LOG
 
+## X.X.X (06/04/2025)
+
+# PT-BR
+
+- Quando estiver no debug, poderá realizar o dd da query que esta sendo executada @bhcosta90
+
+# EN
+
+- When you are in debug, you can dd the query that is being executed @bhcosta90
+
 ## V2.1.2 (06/04/2025)
 
 # PT-BR

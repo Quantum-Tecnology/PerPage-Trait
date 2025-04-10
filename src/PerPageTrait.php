@@ -39,6 +39,10 @@ trait PerPageTrait
 
     public function result(): Data
     {
+        if (config('app.debug') && request()->has('dd')) {
+            $this->defaultQuery()->ddRawSql();
+        }
+        
         return data([
             'data' => match ($this->paginationType ?? config('perpage.default')) {
                 PaginationEnum::PAGINATION_LENGTH => $this->defaultQuery()->paginate($this->getPerPage()),
