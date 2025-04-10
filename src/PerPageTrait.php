@@ -39,8 +39,14 @@ trait PerPageTrait
 
     public function result(): Data
     {
-        if (config('app.debug') && request()->has('dd')) {
-            $this->defaultQuery()->ddRawSql();
+        if (config('app.debug')) {
+            match(true){
+                request()->has('dd') => $this->defaultQuery()->dd(),
+                request()->has('dump') => $this->defaultQuery()->dump(),
+                request()->has('dd_raw') => $this->defaultQuery()->ddRawSql(),
+                request()->has('dump_raw') => $this->defaultQuery()->dumpRawSql(),
+                default => false,
+            };
         }
         
         return data([
