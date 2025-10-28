@@ -8,7 +8,7 @@
     "illuminate/support": "^v10|^v11|^v12",
     "quantumtecnology/enum-basics-extension": "^2.0",
     "illuminate/contracts": "^10.0 || ^11.0 || ^12.0",
-    "quantumtecnology/validate-trait": "^2.1"
+    "quantumtecnology/validate-trait": "^2.0"
   },
   "autoload": {
     "psr-4": {
