@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace QuantumTecnology\PerPageTrait;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -16,7 +18,7 @@ trait PerPageTrait
 
     public function getPerPage(): int
     {
-        $this->perPage = request()->get(
+        $this->perPage = (int) request()->input(
             config('perpage.parameters.per_page'),
             config('perpage.max_per_page')
         );
@@ -40,15 +42,15 @@ trait PerPageTrait
     public function result(): Data
     {
         if (config('app.debug')) {
-            match(true){
-                request()->has('dd') => $this->defaultQuery()->dd(),
-                request()->has('dump') => $this->defaultQuery()->dump(),
-                request()->has('dd_raw') => $this->defaultQuery()->ddRawSql(),
+            match (true) {
+                request()->has('dd')       => $this->defaultQuery()->dd(),
+                request()->has('dump')     => $this->defaultQuery()->dump(),
+                request()->has('dd_raw')   => $this->defaultQuery()->ddRawSql(),
                 request()->has('dump_raw') => $this->defaultQuery()->dumpRawSql(),
-                default => false,
+                default                    => false,
             };
         }
-        
+
         return data([
             'data' => match ($this->paginationType ?? config('perpage.default')) {
                 PaginationEnum::PAGINATION_LENGTH => $this->defaultQuery()->paginate($this->getPerPage()),
